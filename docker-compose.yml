@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: social_downloader_bot
+    restart: unless-stopped
+    volumes:
+      - ./bot_database.db:/app/bot_database.db
+      - ./downloads:/app/downloads
+      - ./bot.log:/app/bot.log
+    environment:
+      - TZ=UTC
